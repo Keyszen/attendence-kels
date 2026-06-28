@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Employee or admin record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "employee"] }
+      },
+      "required": ["username", "password", "role"]
+    },
+    "Attendance": {
+      "title": "Attendance",
+      "description": "Attendance record for an employee",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "number" },
+        "username": { "type": "string" },
+        "date": { "type": "string" },
+        "timeIn": { "type": "string" },
+        "timeOut": { "type": "string" },
+        "photoIn": { "type": "string" },
+        "photoOut": { "type": "string" }
+      },
+      "required": ["userId", "username", "date", "timeIn"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Collection of all users"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": { "$ref": "#/entities/Attendance" },
+      "description": "Collection of attendance records"
+    }
+  }
+}

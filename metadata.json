@@ -1,0 +1,10 @@
+{
+  "name": "Kels Beauty Studio",
+  "description": "Simple attendance application for a beauty studio with selfie verification.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
